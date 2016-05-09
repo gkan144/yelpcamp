@@ -18,7 +18,7 @@ var campgrounds = [
         name: "Mountain Goat's Rest",
         image: "https://farm5.staticflickr.com/4027/4368764673_c8345bd602.jpg"
     }
-    ];
+];
 
 app.get("/",function(req,res){
    res.render("landing"); 
