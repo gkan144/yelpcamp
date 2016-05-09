@@ -1,0 +1,23 @@
+{
+  "name": "yelpcamp",
+  "version": "1.0.0",
+  "description": "A Yelp like application for campgrounds",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkaniouris/yelpcamp.git"
+  },
+  "author": "George Kaniouris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gkaniouris/yelpcamp/issues"
+  },
+  "homepage": "https://github.com/gkaniouris/yelpcamp#readme",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}
