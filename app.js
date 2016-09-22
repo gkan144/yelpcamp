@@ -23,7 +23,7 @@ var campgrounds = [
 ];
 
 app.get("/",function(req,res){
-   res.render("landing"); 
+    res.render("landing"); 
 });
 
 app.get("/campgrounds", function(req, res) {
@@ -31,7 +31,8 @@ app.get("/campgrounds", function(req, res) {
 });
 
 app.post("/campgrounds", function (req, res) {
-
+    campgrounds.push({name: req.body.name, image: req.body.image});
+    res.redirect("/campgrounds");
 });
 
 app.get("/campgrounds/new", function (req, res) {
