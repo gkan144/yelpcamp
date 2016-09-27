@@ -23,7 +23,7 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname+"/public"));
 app.use(flash());
 
-mongoose.connect((process.env.DATABASEURL && (process.NODE_ENV === "production"))?process.env.DATABASEURL:"mongodb://localhost/yelp_camp");
+mongoose.connect((process.env.DATABASEURL && (process.env.NODE_ENV === "production"))?process.env.DATABASEURL:"mongodb://localhost/yelp_camp");
 mongoose.Promise = global.Promise;
 
 //seedDB();
