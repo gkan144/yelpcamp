@@ -22,7 +22,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
 app.use(express.static(__dirname+"/public"));
 app.use(flash());
-mongoose.connect("mongodb://yelpcamp-client:9E#j0tTEp4Em1CCN@ds033966.mlab.com:33966/yelpcamp-gk");
+
+mongoose.connect((process.env.DATABASEURL && (process.NODE_ENV === "production"))?process.env.DATABASEURL:"mongodb://localhost/yelp_camp");
 mongoose.Promise = global.Promise;
 
 //seedDB();
