@@ -15,11 +15,13 @@ router.get("/register", function (req, res) {
 router.post("/register", function (req, res) {
     User.register(new User({username: req.body.username}), req.body.password, function(err, user){
         if(err) {
+            req.flash("error", err.message);
             console.error(err);
-            res.render("error.ejs", {message: "INTERNAL SERVER ERROR"});
+            res.redirect("/register");
         } else {
             passport.authenticate("local")(req, res, function(){
-               res.redirect("/campgrounds");
+                res.flash("success", "Welcome to YelpCamp" + user.username);
+                res.redirect("/campgrounds");
             });
         }
     });
@@ -33,15 +35,8 @@ router.post("/login", passport.authenticate("local", {successRedirect:"/campgrou
 
 router.get("/logout", function(req, res){
     req.logout();
+    req.flash("success", "You have been logged out");
     res.redirect("/");
 });
 
-function isLoggedIn(req, res, next) {
-    if(req.isAuthenticated()) {
-        next();
-    } else {
-        res.redirect("/login");
-    }
-}
-
-module.exports = {router: router, isLoggedIn: isLoggedIn};
+module.exports = router;
