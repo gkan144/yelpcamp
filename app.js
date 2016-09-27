@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
 app.use(express.static(__dirname+"/public"));
 app.use(flash());
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://yelpcamp-client:9E#j0tTEp4Em1CCN@ds033966.mlab.com:33966/yelpcamp-gk");
 mongoose.Promise = global.Promise;
 
 //seedDB();
